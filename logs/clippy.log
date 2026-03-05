@@ -1,5 +1,5 @@
 warning: fields `texture` and `colour` are never read
-  --> src/dragon.rs:24:5
+  --> src/dragon.rs:24:2
    |
 23 | pub struct Body {
    |            ---- fields in this struct
@@ -12,7 +12,7 @@ warning: fields `texture` and `colour` are never read
    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
 
 warning: field `length` is never read
-  --> src/dragon.rs:62:5
+  --> src/dragon.rs:62:2
    |
 61 | pub struct Tail {
    |            ---- field in this struct
@@ -22,7 +22,7 @@ warning: field `length` is never read
    = note: `Tail` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
 
 warning: field `count` is never read
-  --> src/dragon.rs:71:5
+  --> src/dragon.rs:71:2
    |
 70 | pub struct Legs {
    |            ---- field in this struct
@@ -32,5 +32,4 @@ warning: field `count` is never read
    = note: `Legs` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
 
 warning: `dragons` (lib) generated 3 warnings
-    Checking dragons v0.1.0 (/home/devin/Projects/rust/clap/dragons)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.12s
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.08s
