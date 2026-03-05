@@ -4,9 +4,9 @@ pub mod state;
 #[derive(Debug, Parser)]
 #[command(name = "")]
 pub enum Command {
-	Quit,
-	List,
+    Quit,
+    List,
 }
 pub fn quit() {
-	exit(0)
+    exit(0)
 }
