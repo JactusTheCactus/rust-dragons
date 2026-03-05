@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
 set -uo pipefail
-flag() {
-	for f in "$@"
-		do if ! [[ -e ".flags/$f" ]] 
-			then return 1
-		fi
-	done
-}
 dirs=(
 	logs
 )
