@@ -27,8 +27,9 @@ fn main() {
 					.unwrap(),
 			))
 		})
-		.build().repl(|command| match command {
-		Quit => quit(),
-		List => state.list(),
-	});
+		.build()
+		.repl(|command| match command {
+			Quit => quit(),
+			List => state.list(),
+		});
 }
