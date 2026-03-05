@@ -19,7 +19,7 @@ fn main() {
 		left_prompt: DefaultPromptSegment::Basic("dragons".to_owned()),
 		..DefaultPrompt::default()
 	};
-	let rl = ClapEditor::<Command>::builder()
+	ClapEditor::<Command>::builder()
 		.with_prompt(Box::new(prompt))
 		.with_editor_hook(|reed| {
 			reed.with_history(Box::new(
@@ -27,8 +27,7 @@ fn main() {
 					.unwrap(),
 			))
 		})
-		.build();
-	rl.repl(|command| match command {
+		.build().repl(|command| match command {
 		Quit => quit(),
 		List => state.list(),
 	});
