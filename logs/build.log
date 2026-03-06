@@ -1,35 +1,15 @@
-warning: fields `texture` and `colour` are never read
-  --> src/dragon.rs:24:2
+warning: fields `0`, `1`, `2`, and `3` are never read
+  --> src/state.rs:14:17
    |
-23 | pub struct Body {
-   |            ---- fields in this struct
-24 |     texture: BodyTexture,
-   |     ^^^^^^^
-25 |     colour: BodyColour,
-   |     ^^^^^^
+14 |         struct Dragon(Head, Body, Legs, Tail);
+   |                ------ ^^^^  ^^^^  ^^^^  ^^^^
+   |                |
+   |                fields in this struct
    |
-   = note: `Body` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+   = help: consider removing these fields
+   = note: `Dragon` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
 
-warning: field `length` is never read
-  --> src/dragon.rs:62:2
-   |
-61 | pub struct Tail {
-   |            ---- field in this struct
-62 |     length: TailLength,
-   |     ^^^^^^
-   |
-   = note: `Tail` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
-
-warning: field `count` is never read
-  --> src/dragon.rs:71:2
-   |
-70 | pub struct Legs {
-   |            ---- field in this struct
-71 |     count: u8,
-   |     ^^^^^
-   |
-   = note: `Legs` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
-
-warning: `dragons` (lib) generated 3 warnings
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.07s
+warning: `dragons` (lib) generated 1 warning
+   Compiling dragons v0.1.0 (/home/devin/Projects/rust/clap/dragons)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.23s

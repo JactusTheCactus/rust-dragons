@@ -1,4 +1,4 @@
-use {clap::Parser, std::process::exit};
+use clap::Parser;
 pub mod dragon;
 pub mod state;
 #[derive(Debug, Parser)]
@@ -6,7 +6,4 @@ pub mod state;
 pub enum Command {
 	Quit,
 	List,
-}
-pub fn quit() {
-	exit(0)
 }

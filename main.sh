@@ -8,7 +8,6 @@ mkdir -p "${dirs[@]}"
 cmd=(
 	'+nightly fmt'
 	clippy
-	# check
 	# clean
 	build
 )

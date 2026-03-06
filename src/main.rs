@@ -1,12 +1,22 @@
 use {
 	clap_repl::{
 		ClapEditor,
-		reedline::{DefaultPrompt, DefaultPromptSegment, FileBackedHistory},
+		reedline::{DefaultPrompt, DefaultPromptSegment::Basic},
 	},
 	dragons::{
 		Command::{self, List, Quit},
-		dragon::{BodyColour::*, BodyTexture::*, Dragon, HeadBreath::*, HeadTop::*, TailLength::*},
-		quit,
+		dragon::{
+			Dragon,
+			body::{
+				BodyColour::{Brown, Red},
+				BodyTexture::{Feathers, Scales},
+			},
+			head::{
+				HeadBreath::{Fire, Ice},
+				HeadTop::{Ears, Horns},
+			},
+			tail::TailLength::{Long, Short},
+		},
 		state::State,
 	},
 };
@@ -15,21 +25,14 @@ fn main() {
 		Dragon::new(Horns, Fire, Scales, Red, 2, Long),
 		Dragon::new(Ears, Ice, Feathers, Brown, 4, Short),
 	]);
-	let prompt = DefaultPrompt {
-		left_prompt: DefaultPromptSegment::Basic("dragons".to_owned()),
-		..DefaultPrompt::default()
-	};
 	ClapEditor::<Command>::builder()
-		.with_prompt(Box::new(prompt))
-		.with_editor_hook(|reed| {
-			reed.with_history(Box::new(
-				FileBackedHistory::with_file(10000, "/tmp/clap-repl-dragons-history".into())
-					.unwrap(),
-			))
-		})
+		.with_prompt(Box::new(DefaultPrompt {
+			left_prompt: Basic("dragons".to_owned()),
+			..DefaultPrompt::default()
+		}))
 		.build()
 		.repl(|command| match command {
-			Quit => quit(),
+			Quit => state.quit(),
 			List => state.list(),
 		});
 }
